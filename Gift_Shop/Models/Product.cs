@@ -6,6 +6,7 @@
         public string name { get; set; }
         public float price { get; set; }
 
-        public virtual Category categoryid { get; set; }
+        public int categoryID { get; set; }
+        public virtual Category category { get; set; }
     }
 }

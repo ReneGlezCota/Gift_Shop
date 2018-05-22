@@ -13,6 +13,7 @@ namespace Gift_Shop.Models
         public string firstname { get; set; }
         public string lastname { get; set; }
 
-        public Role roleid { get; set; }
+        public int roleid { get; set; }
+        public virtual Role role { get; set; }
     }
 }
