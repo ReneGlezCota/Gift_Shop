@@ -22,12 +22,14 @@ namespace Gift_Shop.Migrations
                     {
                         id = c.Int(nullable: false, identity: true),
                         name = c.String(),
+                        description = c.String(),
+                        imagepath = c.String(),
                         price = c.Single(nullable: false),
-                        categoryid_id = c.Int(),
+                        categoryID = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.id)
-                .ForeignKey("dbo.Category", t => t.categoryid_id)
-                .Index(t => t.categoryid_id);
+                .ForeignKey("dbo.Category", t => t.categoryID, cascadeDelete: true)
+                .Index(t => t.categoryID);
             
             CreateTable(
                 "dbo.Role",
@@ -47,20 +49,20 @@ namespace Gift_Shop.Migrations
                         password = c.String(),
                         firstname = c.String(),
                         lastname = c.String(),
-                        roleid_id = c.Int(),
+                        roleid = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.id)
-                .ForeignKey("dbo.Role", t => t.roleid_id)
-                .Index(t => t.roleid_id);
+                .ForeignKey("dbo.Role", t => t.roleid, cascadeDelete: true)
+                .Index(t => t.roleid);
             
         }
         
         public override void Down()
         {
-            DropForeignKey("dbo.User", "roleid_id", "dbo.Role");
-            DropForeignKey("dbo.Product", "categoryid_id", "dbo.Category");
-            DropIndex("dbo.User", new[] { "roleid_id" });
-            DropIndex("dbo.Product", new[] { "categoryid_id" });
+            DropForeignKey("dbo.User", "roleid", "dbo.Role");
+            DropForeignKey("dbo.Product", "categoryID", "dbo.Category");
+            DropIndex("dbo.User", new[] { "roleid" });
+            DropIndex("dbo.Product", new[] { "categoryID" });
             DropTable("dbo.User");
             DropTable("dbo.Role");
             DropTable("dbo.Product");

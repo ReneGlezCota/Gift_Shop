@@ -208,20 +208,15 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="DAL\GiftShopContext.cs" />
     <Compile Include="DAL\GiftShopInitializer.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201805221849585_InitialCreate.cs" />
-    <Compile Include="Migrations\201805221849585_InitialCreate.Designer.cs">
-      <DependentUpon>201805221849585_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201805222014448_InitialCreate1.cs" />
-    <Compile Include="Migrations\201805222014448_InitialCreate1.Designer.cs">
-      <DependentUpon>201805222014448_InitialCreate1.cs</DependentUpon>
+    <Compile Include="Migrations\201805231736004_InitialCreate.cs" />
+    <Compile Include="Migrations\201805231736004_InitialCreate.Designer.cs">
+      <DependentUpon>201805231736004_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Category.cs" />
@@ -288,11 +283,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201805221849585_InitialCreate.resx">
-      <DependentUpon>201805221849585_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805222014448_InitialCreate1.resx">
-      <DependentUpon>201805222014448_InitialCreate1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201805231736004_InitialCreate.resx">
+      <DependentUpon>201805231736004_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
