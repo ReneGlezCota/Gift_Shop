@@ -1,5 +1,4 @@
 ﻿using System.Data.Entity;
-using System.Data.Entity.ModelConfiguration.Conventions;
 using Gift_Shop.Data.Configuration;
 using Gift_Shop.Entities;
 
