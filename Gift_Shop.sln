@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gift_Shop.Data", "Gift_Shop
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gift_Shop.Entities", "Gift_Shop.Entities\Gift_Shop.Entities.csproj", "{76E8D5A1-ECFA-4A65-91DC-C0366D644676}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gift_Shop.Service", "Gift_Shop.Service\Gift_Shop.Service.csproj", "{BF3B9C44-8BEB-481C-8B01-F956BB82292C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{76E8D5A1-ECFA-4A65-91DC-C0366D644676}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{76E8D5A1-ECFA-4A65-91DC-C0366D644676}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{76E8D5A1-ECFA-4A65-91DC-C0366D644676}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF3B9C44-8BEB-481C-8B01-F956BB82292C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF3B9C44-8BEB-481C-8B01-F956BB82292C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF3B9C44-8BEB-481C-8B01-F956BB82292C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF3B9C44-8BEB-481C-8B01-F956BB82292C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
