@@ -26,7 +26,7 @@ namespace Gift_Shop.Migrations
             roles.ForEach(a => context.Roles.AddOrUpdate(a));
             context.SaveChanges();
 
-            var user = new User { id = 1, username = "testAdmin", password = "123", roleid = roles.Single(s => s.role == "Admin").id, firstname = "Test", lastname = "Test" };
+            var user = new User { id = 1, username = "testdmin", password = "123", roleid = roles.Single(s => s.role == "Admin").id, firstname = "Test", lastname = "Test" };
             context.Users.AddOrUpdate(user);
             context.SaveChanges();
 
