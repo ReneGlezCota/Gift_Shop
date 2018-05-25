@@ -11,6 +11,6 @@ namespace Gift_Shop.Entities
         public int RoleID { get; set; }
         public string Name { get; set; }
 
-        public ICollection<User> User { get; set; }
+        public virtual List<User> User { get; set; }
     }
 }

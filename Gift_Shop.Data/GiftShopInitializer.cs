@@ -33,7 +33,7 @@ namespace Gift_Shop.Data
         {
             return new List<User>
             {
-                new User { UserName = "AdminTest", Password = "123", RoleID = GetRoles().Single(s => s.Name == "Admin").RoleID, FirstName = "Test", LastName = "Test" }
+                new User { UserName = "AdminTest", Password = "123", RoleID = 1, FirstName = "Test", LastName = "Test" }
             };
         }
 
@@ -52,10 +52,10 @@ namespace Gift_Shop.Data
         {
             return new List<Product>
             {
-                new Product { Name = "Dell Latitude E7440", Price = 13000, Description = "Full HD Touchscreen display and a beautiful design. The thin (21 mm) Latitude 14 has a starting weight of just 3.7 lb with a 4-cell battery and comes standard with sleek, durable aluminum, soft-touch finishes and a powder-coated base", CategoryID = GetCategories().Single(a=>a.Name == "Computers").CategoryID, Imagepath = "default.jpg"  },
-                new Product { Name = "JBL Flip 4", Price = 2000, Description = "JBL Flip 4 is the next generation in the award-winning Flip series; it is a portable Bluetooth speaker that delivers surprisingly powerful stereo sound. This compact speaker is powered by a 3000mAh rechargeable Li-ion battery that offers 12 hours of continuous, high-quality audio playtime", CategoryID = GetCategories().Single(a=>a.Name == "Electronics").CategoryID, Imagepath = "default.jpg"  },
-                new Product { Name = "Wilson A360 Baseball Glove", Price = 1500, Description = "The 10 A360 is the perfect glove for those just learning the game. Its 10 utility size allows the young ballplayer to play anywhere on the field, helping develop their game. The A360 will go a long way in the development of young ball players", CategoryID = GetCategories().Single(a=>a.Name == "Sports").CategoryID, Imagepath = "default.jpg"  },
-                new Product { Name = "Samsung Galaxy S9", Price = 16000, Description = "Introducing the revolutionary Galaxy S9. The phone that reimagines the camera. And in doing so reimagines everything you can do, too.", CategoryID = GetCategories().Single(a=>a.Name == "Cell Phones").CategoryID, Imagepath = "default.jpg"  }
+                new Product { Name = "Dell Latitude E7440", Price = 13000, Description = "Full HD Touchscreen display and a beautiful design. The thin (21 mm) Latitude 14 has a starting weight of just 3.7 lb with a 4-cell battery and comes standard with sleek, durable aluminum, soft-touch finishes and a powder-coated base", CategoryID = 1, Imagepath = "default.jpg"  },
+                new Product { Name = "JBL Flip 4", Price = 2000, Description = "JBL Flip 4 is the next generation in the award-winning Flip series; it is a portable Bluetooth speaker that delivers surprisingly powerful stereo sound. This compact speaker is powered by a 3000mAh rechargeable Li-ion battery that offers 12 hours of continuous, high-quality audio playtime", CategoryID = 2, Imagepath = "default.jpg"  },
+                new Product { Name = "Wilson A360 Baseball Glove", Price = 1500, Description = "The 10 A360 is the perfect glove for those just learning the game. Its 10 utility size allows the young ballplayer to play anywhere on the field, helping develop their game. The A360 will go a long way in the development of young ball players", CategoryID=3, Imagepath = "default.jpg"  },
+                new Product { Name = "Samsung Galaxy S9", Price = 16000, Description = "Introducing the revolutionary Galaxy S9. The phone that reimagines the camera. And in doing so reimagines everything you can do, too.", CategoryID = 4, Imagepath = "default.jpg"  }
             };
         }
     }
