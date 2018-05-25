@@ -16,6 +16,7 @@ namespace Gift_Shop.Data
             GetUsers().ForEach(a => context.Users.Add(a));
             GetCategories().ForEach(a => context.Categories.Add(a));
             GetProducts().ForEach(a => context.Products.Add(a));
+
             context.Commit();
         }
 

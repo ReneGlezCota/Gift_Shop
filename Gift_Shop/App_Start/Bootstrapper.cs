@@ -4,6 +4,7 @@ using Autofac;
 using Autofac.Integration.Mvc;
 using Gift_Shop.Data.Infrastructure;
 using Gift_Shop.Data.Repositories;
+using Gift_Shop.Mapping;
 using Gift_Shop.Service;
 
 namespace Gift_Shop.App_Start
@@ -13,7 +14,6 @@ namespace Gift_Shop.App_Start
         public static void Run()
         {
             SetAutofacContainer();
-
             //AutoMapperConfiguration.Configure();
         }
 

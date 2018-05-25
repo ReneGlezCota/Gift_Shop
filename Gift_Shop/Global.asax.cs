@@ -2,7 +2,7 @@
 using System.Web.Optimization;
 using System.Web.Routing;
 using Gift_Shop.App_Start;
-using Gift_Shop.DAL;
+using Gift_Shop.Data;
 
 namespace Gift_Shop
 {

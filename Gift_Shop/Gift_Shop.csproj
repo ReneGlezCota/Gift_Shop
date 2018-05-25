@@ -220,25 +220,11 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ProductsController.cs" />
-    <Compile Include="Controllers\RolesController.cs" />
-    <Compile Include="Controllers\UsersController.cs" />
-    <Compile Include="DAL\GiftShopContext.cs" />
-    <Compile Include="DAL\GiftShopInitializer.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201805231736004_InitialCreate.cs" />
-    <Compile Include="Migrations\201805231736004_InitialCreate.Designer.cs">
-      <DependentUpon>201805231736004_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\Category.cs" />
-    <Compile Include="Models\Product.cs" />
-    <Compile Include="Models\Role.cs" />
-    <Compile Include="Models\User.cs" />
+    <Compile Include="Mapping\AutoMapperConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -291,6 +277,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -301,14 +288,13 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201805231736004_InitialCreate.resx">
-      <DependentUpon>201805231736004_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Gift_Shop.Data\Gift_Shop.Data.csproj">
       <Project>{3D7F82C4-0D94-4CE5-99AA-C41D9EA73BE6}</Project>
       <Name>Gift_Shop.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Gift_Shop.Entities\Gift_Shop.Entities.csproj">
+      <Project>{76e8d5a1-ecfa-4a65-91dc-c0366d644676}</Project>
+      <Name>Gift_Shop.Entities</Name>
     </ProjectReference>
     <ProjectReference Include="..\Gift_Shop.Service\Gift_Shop.Service.csproj">
       <Project>{BF3B9C44-8BEB-481C-8B01-F956BB82292C}</Project>
