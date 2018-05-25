@@ -12,15 +12,7 @@ namespace Gift_Shop.Data.Repositories
         public Category GetCategoryByName(string categoryName)
         {
             var category = this.DbContext.Categories.Where(a => a.Name == categoryName).FirstOrDefault();
-
             return category;
-        }
-
-        public override void Update(Category entity)
-        {
-            base.Update(entity);
-        }
-
-
+        }        
     }
 }
