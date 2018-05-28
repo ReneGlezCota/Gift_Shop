@@ -1,14 +1,17 @@
 ﻿<!DOCTYPE html>
-<html>
+<html ng-app="myApp">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title</title>
+
+    <base href="">
+
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
 </head>
-<body>
+<body ng-controller="GlobalController">
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -17,11 +20,20 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Gift Shop", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Gift Shop", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })                
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    @*<li>@Html.ActionLink("Home", "Index", "Home")</li>*@
+                    <li>                        
+                        <div>
+                            <form class="navbar-form navbar-left" role="search">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Search" ng-model="query">
+                                </div>
+                            </form>
+                        </div>
+                    </li>
                 </ul>
                                 
                 @Html.Partial("_UserPartial")
@@ -29,8 +41,10 @@
         </div>
     </div>
     <div class="container body-content">
-        <div class="container" ng-app="">
-            @RenderBody()
+        <div class="container">            
+            <ng-view>
+                @RenderBody()
+            </ng-view>
         </div>        
         <hr />
         <footer>
@@ -41,6 +55,15 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/angular")
     @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+    @*@RenderSection("scripts", required: false)*@
+
+    <!--Load Files -->
+    <script src="~/App/Route/routes.js"></script>
+    <!--Controllers-->
+    <script src="~/App/Controllers/globalController.js"></script>
+    <script src="~/App/Controllers/Home/homeController.js"></script>
+    <!--Services-->
+    <script src="~/App/Services/ProductService.js"></script>
+
 </body>
 </html>

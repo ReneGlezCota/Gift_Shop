@@ -12,7 +12,21 @@ namespace Gift_Shop
                         "~/Scripts/jquery-{version}.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/angular").Include(
-                      "~/Scripts/angular.js"));
+                      "~/Scripts/angular.js",
+                      "~/Scripts/angular-route.js",
+                      "~/Scripts/angular-resource.js",
+                      "~/Scripts/angular-animate.js",
+                      "~/Scripts/angular-loader.js",
+                      "~/Scripts/angular-aria.js",
+                      "~/Scripts/angular-cookies.js",
+                      "~/Scripts/angular-message-format.js",
+                      "~/Scripts/angular-messages.js",
+                      "~/Scripts/angular-mocks.js",
+                      "~/Scripts/angular-sanitize.js",
+                      "~/Scripts/angular-touch.js",
+                      "~/Scripts/angular-ui/ui-bootstrap.js",
+                      "~/Scripts/angular-ui/ui-bootstrap-tpls.js",
+                      "~/App/app.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
