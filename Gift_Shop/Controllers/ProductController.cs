@@ -15,7 +15,7 @@ namespace Gift_Shop.Controllers
         }
 
         // GET: api/Product
-        public IEnumerable<string> GetProducts()
+        public IEnumerable<string> Get()
         {
             return new string[] { "value1", "value2" };
         }

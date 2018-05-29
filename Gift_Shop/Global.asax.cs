@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System.Web.Http;
+using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using Gift_Shop.App_Start;
@@ -17,6 +18,7 @@ namespace Gift_Shop
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            GlobalConfiguration.Configure(WebApiConfig.Register);
 
             // Autofac and Automapper configurations
             Bootstrapper.Run();
