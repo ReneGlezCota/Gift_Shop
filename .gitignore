@@ -211,7 +211,7 @@ project.lock.json
 *.Specs_*.html
 
 # Script
-Scripts/
+Gift_Shop.Web/Scripts/*
 
 
 #####
