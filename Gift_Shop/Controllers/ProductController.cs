@@ -4,6 +4,7 @@ using Gift_Shop.Service;
 
 namespace Gift_Shop.Controllers
 {
+    [RoutePrefix("api/product")]
     public class ProductController : ApiController
     {
         private readonly IProductService productService;
@@ -14,7 +15,7 @@ namespace Gift_Shop.Controllers
         }
 
         // GET: api/Product
-        public IEnumerable<string> Get()
+        public IEnumerable<string> GetProducts()
         {
             return new string[] { "value1", "value2" };
         }
