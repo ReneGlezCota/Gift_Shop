@@ -25,6 +25,11 @@ namespace Gift_Shop.Service
             return products;
         }
 
+        public IEnumerable<Product> GetProductByCategory(string categoryname)
+        { 
+            return null;
+        }
+
         public IEnumerable<Product> GetCategoryProducts(string categoryName, string productName = null)
         {
             var category = categoryRepository.GetCategoryByName(categoryName);

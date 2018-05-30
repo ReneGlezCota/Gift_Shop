@@ -8,6 +8,7 @@ using AutoMapper;
 using Gift_Shop.Entities;
 using Gift_Shop.Service;
 using Gift_Shop.Web.ViewModels;
+using Newtonsoft.Json.Linq;
 
 namespace Gift_Shop.Web.Controllers
 {
@@ -33,6 +34,16 @@ namespace Gift_Shop.Web.Controllers
             return result;            
         }
 
+        public IEnumerable<ProductViewModel> GetProducts(string categoryname)
+        {
+            IEnumerable<ProductViewModel> result;
+            IEnumerable<Product> getProducts;
+
+            getProducts = productService.GetProductByCategory(categoryname);
+
+            return null;
+        }
+
         // GET: api/Product/5
         public string Get(int id)
         {
@@ -40,8 +51,10 @@ namespace Gift_Shop.Web.Controllers
         }
 
         // POST: api/Product
-        public void Post([FromBody]string value)
+        public string Post([FromBody]string value)
         {
+            //string value = data["value"].ToObject<string>();
+            return "values";
         }
 
         // PUT: api/Product/5

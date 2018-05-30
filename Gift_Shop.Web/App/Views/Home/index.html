@@ -1,23 +1,41 @@
 ﻿<!--<div class="row">
     <div class="bs-component">
         <div class="list-group">-->
-            <div ng-repeat="product in products">
-                <div class="panel panel-default">
-                    <div class="panel-body">
-                        <div class="media">
-                            <a class="pull-left" href="#">
-                                <img class="media-object" width="160" height="120" src="../../../images/default.jpg" />
-                            </a>
-                            <div class="media-body">
-                                <h3 class="media-heading">
-                                    {{product.Name}}
-                                </h3>
-                                <p>{{product.Description}}</p>
-                            </div>
+<div class="container">
+    <div class="navbar">
+        <div class="row">
+            <form class="navbar-form pull-left">
+                <h4>Filter like Category</h4> <select name="" id="" class="form-control" ng-model="category" ng-options="cat.Name as cat.Name for cat in categories | orderBy:'CategoryID' " style="width: 200px;" ng-change="filterByCategory(category)"></select>
+            </form>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row" ng-repeat="product in products ">
+            <div class="panel panel-default col-3">
+                <div class="panel-body">
+                    <div class="media">
+                        <a class="pull-left" href="#">
+                            <img class="media-object" width="160" height="120" ng-src="../../../images/{{product.ImagePath}}" />
+                        </a>
+                        <div class="media-body">
+                            <h3 class="media-heading" style="color:blue">
+                                {{product.Name}}
+                            </h3>
+                            <p style="color:red; font-weight:bold">{{product.Price | currency}}</p>
                         </div>
                     </div>
                 </div>
             </div>
-        <!--</div>
+            <!--<div class="card" style="width: 18rem;">
+                <img class="card-img-top" width="160" height="120" ng-src="../../../images/{{product.ImagePath}}" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">{{product.Name}}</h5>
+                    <p class="card-text">{{product.Price | currency}}</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>-->
+        </div>
+
+       
     </div>
-</div>-->
+</div>

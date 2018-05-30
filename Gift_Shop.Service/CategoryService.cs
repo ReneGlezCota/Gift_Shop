@@ -18,6 +18,12 @@ namespace Gift_Shop.Service
             this.unitOfWork = unitOfWork;
         }
 
+        public IEnumerable<Category> GetCategories()
+        {
+            var category = categoryRepository.GetAll();
+            return category;
+        }
+
         public IEnumerable<Category> GetCategories(string name = null)
         {
             if (string.IsNullOrEmpty(name))

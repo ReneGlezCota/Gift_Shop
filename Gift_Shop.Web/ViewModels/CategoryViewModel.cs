@@ -11,6 +11,6 @@ namespace Gift_Shop.Web.ViewModels
         public int CategoryID { get; set; }
         public string Name { get; set; }
 
-        public List<ProductViewModel> Products { get; set; }
+        //public List<ProductViewModel> Products { get; set; }
     }
 }
