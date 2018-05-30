@@ -1,6 +1,4 @@
-﻿<!--<div class="row">
-    <div class="bs-component">
-        <div class="list-group">-->
+﻿
 <div class="container">
     <div class="navbar">
         <div class="row">
@@ -9,31 +7,70 @@
             </form>
         </div>
     </div>
+    
     <div class="container">
-        <div class="row" ng-repeat="product in products ">
-            <div class="panel panel-default col-3">
-                <div class="panel-body">
-                    <div class="media">
-                        <a class="pull-left" href="#">
-                            <img class="media-object" width="160" height="120" ng-src="../../../images/{{product.ImagePath}}" />
-                        </a>
-                        <div class="media-body">
-                            <h3 class="media-heading" style="color:blue">
-                                {{product.Name}}
-                            </h3>
-                            <p style="color:red; font-weight:bold">{{product.Price | currency}}</p>
+        <div class="row">
+            <div ng-repeat="product in products">
+                <div class="col-sm-3" style="padding-bottom:20px;">
+                    <div class="col-item">
+                        <div class="photo">
+                            <img width="160" height="120" ng-src="../../../images/{{product.ImagePath}}" class="img-responsive" alt="a" />
+                        </div>
+                        <div class="info">
+                            <div class="row">
+                                <div class="price col-md-12">
+                                    <h5>
+                                        {{product.Name}}
+                                    </h5>
+                                    <h5 class="price-text-color">
+                                        {{product.Price | currency}}
+                                    </h5>
+                                </div>
+                                <!--<div class="rating hidden-sm col-md-6">
+                                    <i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">
+                                    </i><i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">
+                                    </i><i class="fa fa-star"></i>
+                                </div>-->
+                            </div>
+                            <div class="separator clear-left">
+                                <p class="btn-add">
+                                    <i class="fa fa-shopping-cart"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">Add to cart</a>
+                                </p>
+                                <p class="btn-details">
+                                    <i class="fa fa-list"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">More details</a>
+                                </p>
+                            </div>
+                            <div class="clearfix">
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <!--<div class="card" style="width: 18rem;">
-                <img class="card-img-top" width="160" height="120" ng-src="../../../images/{{product.ImagePath}}" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">{{product.Name}}</h5>
-                    <p class="card-text">{{product.Price | currency}}</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+           
+            <!--<div class="panel panel-default col-3">
+            <div class="panel-body">
+                <div class="media">
+                    <a class="pull-left" href="#">
+                        <img class="media-object" width="160" height="120" ng-src="../../../images/{{product.ImagePath}}" />
+                    </a>
+                    <div class="media-body">
+                        <h3 class="media-heading" style="color:blue">
+                            {{product.Name}}
+                        </h3>
+                        <h4>{{product.Category.Name}}</h4>
+                        <p style="color:red; font-weight:bold">{{product.Price | currency}}</p>
+                    </div>
                 </div>
-            </div>-->
+            </div>
+        </div>-->
+            <!--<div class="card" style="width: 18rem;">
+            <img class="card-img-top" width="160" height="120" ng-src="../../../images/{{product.ImagePath}}" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">{{product.Name}}</h5>
+                <p class="card-text">{{product.Price | currency}}</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>-->
         </div>
 
        

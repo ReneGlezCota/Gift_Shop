@@ -28,14 +28,13 @@ angular
             });
         };
 
-
         initProduct();
         initCategories();
 
         $scope.filterByCategory = function (value) {
-            $scope.promiseProduct = ProductService.getProductByCategory(value).then(function (result) {
-                $scope.products = result.data;
-            });
+            //$scope.promiseProduct = ProductService.getProductByCategory(value).then(function (result) {
+            //    $scope.products = result.data;
+            //});
             console.log(value);
         };
 }]);
