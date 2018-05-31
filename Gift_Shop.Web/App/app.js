@@ -6,9 +6,9 @@ angular
         'ngCookies',
         'ngResource',
         'ngRoute',
+        'ngSanitize',
         'ui.bootstrap'])
     .config(['$httpProvider', '$locationProvider', function ($httpProvider, $locationProvider) {
-        //$httpProvider.interceptors.push('xmlHttpInteceptor');
         $locationProvider.html5Mode({
             enabled: true,
             requireBase: false

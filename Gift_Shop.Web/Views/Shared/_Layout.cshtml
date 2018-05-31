@@ -1,54 +1,82 @@
 ﻿<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+<html ng-app="myApp">
+    <head>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-route.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-animate.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-sanitize.js"></script>
+        <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.5.0.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-cookies.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-resource.js"></script>
 
-</head>
-<body ng-app="myApp" ng-controller="GlobalController">
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Gift Shop", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+        <script src="~/App/app.js"></script>
+
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Gift Shop</title>
+
+        @Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")
+    </head>
+    <body ng-controller="GlobalController" style="background-color:#D8D8D8; font-family: 'Varela Round', sans-serif;">
+        <nav class="navbar navbar-default navbar-expand-lg navbar-light">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand">Gift - Shop</a>
+                </div>
+                <div class="col-sm-3 col-md-3">
+                    <form class="navbar-form navbar-left" role="search">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search" ng-model="query">
+                        </div>
+                    </form>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a data-toggle="modal" data-target="#myModal">
+                                Cart <span class="glyphicon glyphicon-shopping-cart"></span> ({{shoped.length}})
+                            </a>
+                        </li>
+                        <li>
+                            <a ng-click="showLogin();">
+                                Login <span class="glyphicon glyphicon-log-in"></span>
+                            </a>
+                        </li>                        
+                    </ul>
+                </div>
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "", "")</li>
-                </ul>
-                @Html.Partial("_LoginPartial")
-            </div>
+        </nav>  
+        
+     
+        <div class="container body-content">            
+            <ng-view>
+                @RenderBody()
+            </ng-view>
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            </footer>
         </div>
-    </div>
-    <div class="container body-content">
-        <ng-view>
-            @RenderBody()
-        </ng-view>
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
+        <div class="modal-parent">
+        </div>
+        @Scripts.Render("~/bundles/jquery")
+        @*@Scripts.Render("~/bundles/angular")*@
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/angular")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
-
-    <!--Services-->
-    <script src="~/App/Services/ProductService.js"></script>
-    <script src="~/App/Services/CategoryService.js"></script>
-    <!--Load Files -->
-    <script src="~/App/Route/routes.js"></script>
-    <!--Controllers-->
-    <script src="~/App/Controllers/globalController.js"></script>
-    <script src="~/App/Controllers/Home/homeController.js"></script>
-</body>
+        <!--Services-->
+        <script src="~/App/Services/ProductService.js"></script>
+        <script src="~/App/Services/CategoryService.js"></script>
+        <!--Load Files -->
+        <script src="~/App/Route/routes.js"></script>
+        <!--Controllers-->
+        <script src="~/App/Controllers/globalController.js"></script>
+        <script src="~/App/Controllers/Home/homeController.js"></script>
+    </body>
 </html>
