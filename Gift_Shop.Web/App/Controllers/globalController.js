@@ -1,54 +1,39 @@
 ﻿'use strict';
 angular
     .module('myApp')
-    .controller('GlobalController', ['$scope', '$uibModal', '$log', function ($scope, $uibModal, $log) {
-
-        $scope.items = ['item1', 'item2', 'item3'];
-
-        $scope.animationsEnabled = true;
-
+    .controller('GlobalController', ['$scope', '$uibModal', '$log', function ($scope, $uibModal, $log) {       
+        $scope.valuesLogin = '';
         $scope.showLogin = function () {
             var modalInstance = $uibModal.open({
-                animation: $scope.animationsEnabled,
-                ariaLabelledBy: 'modal-title',
-                ariaDescribedBy: 'modal-body',
-                template: 'myloginModal.html',
-                windowTemplateUrl: 'App/Views/Account/login.html',
+                animation: true,
+                templateUrl: 'App/Views/Templates/login.html',
                 controller: 'ModalInstanceCtrl',
-                controllerAs: '$scope',
-                size: 'sm',
-                resolve: {
-                    items: function () {
-                        return $scope.items;
-                    }
-                }
+                size : 'lg'
             });
 
-            modalInstance.result.then(function (selectedItem) {
-                $scope.selected = selectedItem;
+            modalInstance.result.then(function (values) {
+                $scope.valuesLogin = values;
+
+
+
             }, function () {
                 $log.info('Modal dismissed at: ' + new Date());
             });
-        };
 
-       
-
-        $scope.toggleAnimation = function () {
-            $scope.animationsEnabled = !$scope.animationsEnabled;
+            console.log($scope.valuesLogin);
         };
 
         $scope.$watch('query', function (newvalue, oldvalue) {
             console.log(newvalue + ' - ' + oldvalue);
         });
     }])
-    .controller('ModalInstanceCtrl', function ($uibModalInstance, items, $scope) {
-        
-       
-        $scope.ok = function () {
-            $uibModalInstance.close('load');
+    .controller('ModalInstanceCtrl', function ($scope, $uibModalInstance) {
+        $scope.login = function (values) {
+            //console.log(values);
+            $uibModalInstance.close(values);
         };
 
-        $scope.cancel = function () {
+        $scope.closeLogin = function () {
             $uibModalInstance.dismiss('cancel');
         };
         

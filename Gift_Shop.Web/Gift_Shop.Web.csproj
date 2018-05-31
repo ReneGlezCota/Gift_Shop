@@ -249,7 +249,8 @@
     <Content Include="App\Route\routes.js" />
     <Content Include="App\Services\CategoryService.js" />
     <Content Include="App\Services\ProductService.js" />
-    <Content Include="App\Views\Account\login.html" />
+    <Content Include="App\Views\Templates\carshop.html" />
+    <Content Include="App\Views\Templates\login.html" />
     <Content Include="App\Views\Home\index.html" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />

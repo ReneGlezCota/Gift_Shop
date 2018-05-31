@@ -18,7 +18,7 @@
         @Styles.Render("~/Content/css")
         @Scripts.Render("~/bundles/modernizr")
     </head>
-    <body ng-controller="GlobalController" style="background-color:#D8D8D8; font-family: 'Varela Round', sans-serif;">
+    <body ng-controller="GlobalController as $ctrl" style="background-color:#D8D8D8; font-family: 'Varela Round', sans-serif;">
         <nav class="navbar navbar-default navbar-expand-lg navbar-light">
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -51,8 +51,7 @@
                     </ul>
                 </div>
             </div>
-        </nav>  
-        
+        </nav>         
      
         <div class="container body-content">            
             <ng-view>
