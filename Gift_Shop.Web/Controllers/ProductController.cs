@@ -33,17 +33,7 @@ namespace Gift_Shop.Web.Controllers
 
             return result;            
         }
-
-        public IEnumerable<ProductViewModel> GetProducts(string categoryname)
-        {
-            IEnumerable<ProductViewModel> result;
-            IEnumerable<Product> getProducts;
-
-            getProducts = productService.GetProductByCategory(categoryname);
-
-            return null;
-        }
-
+                
         // GET: api/Product/5
         public string Get(int id)
         {

@@ -8,9 +8,9 @@
         <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.5.0.js"></script>
         <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-cookies.js"></script>
         <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-resource.js"></script>
-
+        <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.10/lodash.min.js"></script>
         <script src="~/App/app.js"></script>
-
+        
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Gift Shop</title>
@@ -18,7 +18,7 @@
         @Styles.Render("~/Content/css")
         @Scripts.Render("~/bundles/modernizr")
     </head>
-    <body ng-controller="GlobalController as $ctrl" style="background-color:#D8D8D8; font-family: 'Varela Round', sans-serif;">
+    <body ng-controller="GlobalController" style="background-color:#D8D8D8; font-family: 'Varela Round', sans-serif;">
         <nav class="navbar navbar-default navbar-expand-lg navbar-light">
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -29,23 +29,27 @@
                     </button>
                     <a class="navbar-brand">Gift - Shop</a>
                 </div>
-                <div class="col-sm-3 col-md-3">
-                    <form class="navbar-form navbar-left" role="search">
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Search" ng-model="query">
-                        </div>
-                    </form>
-                </div>
+                
                 <div class="collapse navbar-collapse" id="myNavbar">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            <a data-toggle="modal" data-target="#myModal">
-                                Cart <span class="glyphicon glyphicon-shopping-cart"></span> ({{shoped.length}})
+                    <ul class="nav navbar-nav navbar-right">                       
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                <span class="glyphicon glyphicon-user"></span> {{ uservalues.username }} <span class="caret"></span>
                             </a>
+                            <ul class="dropdown-menu" ng-show="uservalues">
+                                <li><a href="#">Profile Setting</a></li>
+                                <li><a href="#">Product Configurations</a></li>
+                                <li><a href="#">User Configurations</a></li>
+                                <li role="separator" class="divider"></li>
+                            </ul>
                         </li>
+
                         <li>
-                            <a ng-click="showLogin();">
-                                Login <span class="glyphicon glyphicon-log-in"></span>
+                            <a href="#" ng-show="!uservalues" ng-click="login();">
+                                <span class="glyphicon glyphicon-log-in"></span> Login
+                            </a>
+                            <a href="#" ng-show="uservalues" ng-click="logout()">
+                                <span class="glyphicon glyphicon-log-out"></span>  LogOut
                             </a>
                         </li>                        
                     </ul>
@@ -70,6 +74,7 @@
         @RenderSection("scripts", required: false)
 
         <!--Services-->
+        <script src="~/App/Services/AuthenticateService.js"></script>
         <script src="~/App/Services/ProductService.js"></script>
         <script src="~/App/Services/CategoryService.js"></script>
         <!--Load Files -->

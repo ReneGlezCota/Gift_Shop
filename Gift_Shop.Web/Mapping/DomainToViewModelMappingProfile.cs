@@ -15,6 +15,7 @@ namespace Gift_Shop.Web.Mapping
         {
             CreateMap<Category, CategoryViewModel>();
             CreateMap<Product, ProductViewModel>();
+            CreateMap<User, UserViewModel>();
         }
     }
 }

@@ -26,6 +26,12 @@ namespace Gift_Shop.Service
             return users;
         }
 
+        public User GetUser(string username, string password)
+        {
+            var user = userRepository.GetAll().Where(a => a.UserName == username && a.Password == password).FirstOrDefault();
+            return user;            
+        }
+
         public void CreateUser(User user)
         {
             userRepository.Add(user);
@@ -35,5 +41,7 @@ namespace Gift_Shop.Service
         {
             iunitOfWork.Commit();
         }
+
+        
     }
 }

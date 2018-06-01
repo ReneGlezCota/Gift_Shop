@@ -1,12 +1,26 @@
 ﻿<div class="container">
-    <div class="navbar">
+   
+    <div class="container-fluid">
         <div class="row">
-            <form class="navbar-form pull-left">
-                <h4>Filter like Category</h4> <select name="" id="" class="form-control" ng-model="category" ng-options="cat.Name as cat.Name for cat in categories | orderBy:'CategoryID' " style="width: 200px;" ng-change="filterByCategory(category)"></select>
-            </form>
+            <div class="col-sm-6">
+                <div class="container">
+                    <div class="row">
+                        <h4 class="col-sm-4">Filter by Category</h4>
+                        <select name="" id="" class="form-control col-sm-6" ng-model="category" ng-options="cat.Name as cat.Name for cat in categories | orderBy:'CategoryID' " style="width: 150px;" ng-change="filterByCategory(category)"></select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search" ng-model="query">
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <button type="button" class="btn btn-outline-light text-dark" ng-click="showCarShop()">Cart <span class="glyphicon glyphicon-shopping-cart"></span> (1)</button>               
+            </div>
         </div>
     </div>
-    
+    <br/>
     <div class="container">
         <div class="row">
             <div ng-repeat="product in products">
@@ -28,10 +42,10 @@
                             </div>
                             <div class="separator clear-left">
                                 <p class="btn-add">
-                                    <i class="fa fa-shopping-cart"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">Add to cart</a>
+                                    <i class="fa fa-shopping-cart"></i><a  href="#" ng-click="addItemToCart(product);" class="hidden-sm" style="text-decoration: none;"><span>Add to cart</span></a>
                                 </p>
                                 <p class="btn-details">
-                                    <i class="fa fa-list"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">More details</a>
+                                    <i class="fa fa-list"></i><a href="#" ng-click="showProduct(product);" class="hidden-sm" style="text-decoration: none;"><span>More details</span></a>
                                 </p>
                             </div>
                             <div class="clearfix">
