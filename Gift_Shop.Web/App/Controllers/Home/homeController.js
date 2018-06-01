@@ -7,15 +7,17 @@ angular
         $scope.categories = '';
         $scope.products = '';
         $scope.filteredItems = null;
-   
+        $scope.shoped = [];
+        
+        //Function to get all products
         var initProduct = function () {
             $scope.promiseProduct = ProductService.getAllProducts().then(function (result) {
                 $scope.products = result.data;
                 $scope.filteredItems = result.data;
-                console.log(result.data);
             });
         };
 
+        //Function to get all categories
         var initCategories = function () {
             $scope.promiseCategory = CategoryService.getAllCategories().then(function (result) {
                 $scope.categories = result.data;
@@ -30,23 +32,11 @@ angular
             });
         };
 
+        //Charge the all values
         initProduct();
         initCategories();
-
-        $scope.filterByCategory = function (value) {
-            var category = _.find($scope.categories, { "Name": value });
-            $scope.products = $scope.filteredItems;
-            if (value != 'All') {
-                var obj = _($scope.products).filter(function (r) {
-                    if (_(r['CategoryID']).toString().toUpperCase().includes(category.CategoryID.toString().toUpperCase())) { return true; };
-                    return false;
-                  }
-                ).value();
-
-                $scope.products = obj;
-            }
-        };
-
+       
+        //Show de CarShop modal
         $scope.showCarShop = function () {
             var modalInstance = $uibModal.open({
                 animation: true,
@@ -59,7 +49,22 @@ angular
             //    $log.info('Modal dismissed at: ' + new Date());
             //});
         };
+        
+        //Filter by Category
+        $scope.filterByCategory = function (value) {
+            var category = _.find($scope.categories, { "Name": value });
+            $scope.products = $scope.filteredItems;
+            if (value != 'All') {
+                var obj = _($scope.products).filter(function (r) {
+                    if (_(r['CategoryID']).toString().toUpperCase().includes(category.CategoryID.toString().toUpperCase())) { return true; };
+                    return false;
+                }).value();
 
+                $scope.products = obj;
+            }
+        };
+
+        //Filter by Product Name
         $scope.$watch('query', function (newvalue, oldvalue) {
             $scope.products = $scope.filteredItems;
             var obj = _($scope.products).filter(
@@ -72,12 +77,17 @@ angular
             $scope.products = obj;
         });
 
+
         $scope.addItemToCart = function (values) {
             $scope.shoped.push({
-                name: values.name,
-                price: values.price
+                Name: values.Name,
+                Price: values.Price,
+                ProductID: values.ProductID
             });
+
+            console.log($scope.shoped);
         };
+
 
 
 
