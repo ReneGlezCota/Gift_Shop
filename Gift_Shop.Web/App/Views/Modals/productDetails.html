@@ -1,0 +1,41 @@
+﻿<div class="modal-fade">
+    <div role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" ng-click="closeDetails()">&times;</button>
+                <h4 class="modal-title">Details Product</h4>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-4 item-photo">
+                            <!--<img style="max-width:100%;" src="https://ak1.ostkcdn.com/images/products/8818677/Samsung-Galaxy-S4-I337-16GB-AT-T-Unlocked-GSM-Android-Cell-Phone-85e3430e-6981-4252-a984-245862302c78_600.jpg" />-->
+                            <img style="max-width:100%;" ng-src="../../../images/{{details.ImagePath}}" />
+                        </div>
+                        <div class="col-xs-5" style="border:0px solid gray">
+                            <!-- Titulo del producto -->
+                            <h3>{{details.Name}}</h3>
+                            <!-- Precios -->
+                            <h6 class="title-price"><small>PRICE</small></h6>
+                            <h3 style="margin-top:0px;">{{details.Price | currency}} (MXN)</h3>
+                            <br />
+                            <br />
+                        </div>
+                        <div class="col-xs-9">
+                            <ul class="menu-items">
+                                <li>Detalle del producto</li>
+                            </ul>
+                            <div style="width:100%;border-top:1px solid silver">
+                                <p>
+                                    <small>
+                                        {{details.Description}}
+                                    </small>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

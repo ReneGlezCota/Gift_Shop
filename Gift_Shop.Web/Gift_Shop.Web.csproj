@@ -254,13 +254,14 @@
     <Content Include="App\Services\CategoryService.js" />
     <Content Include="App\Services\ProductService.js" />
     <Content Include="App\Services\ShoppingService.js" />
-    <Content Include="App\Views\Modals\carshop.html" />
+    <Content Include="App\Views\Modals\productDetails.html" />
     <Content Include="App\Views\Modals\login.html" />
     <Content Include="App\Views\Home\index.html" />
     <Content Include="App\Views\Shopping\index.html" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\cards.css" />
+    <Content Include="Content\detailproduct.css" />
     <Content Include="Content\login.css" />
     <Content Include="Content\ui-bootstrap-csp.css" />
     <Content Include="favicon.ico" />

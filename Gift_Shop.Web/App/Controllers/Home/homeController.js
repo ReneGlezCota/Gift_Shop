@@ -86,8 +86,20 @@ angular
                 Price: values.Price,
                 ProductID: values.ProductID
             };
-
             ShoppingService.addProduct(objProduct);            
+        };
+
+        $scope.showProduct = function (values) {
+            var modalInstance = $uibModal.open({
+                animation: true,
+                templateUrl: 'App/Views/Modals/productDetails.html',
+                controller: 'ModalShopCartController',
+                resolve: {
+                    details: function () {
+                        return values;
+                    }
+                }
+            });
         };
     }])
     .filter('offset', function () {
@@ -95,8 +107,9 @@ angular
             return input.slice(start);
         };
     })
-    .controller('ModalShopCartController', function ($scope, $uibModalInstance) {
-        $scope.close = function () {
-            $uibModalInstance.dismiss('cancel');
+    .controller('ModalShopCartController', function ($scope, $uibModalInstance, details) {        
+        $scope.details = details;
+        $scope.closeDetails = function () {
+            $uibModalInstance.close();
         };
     });
