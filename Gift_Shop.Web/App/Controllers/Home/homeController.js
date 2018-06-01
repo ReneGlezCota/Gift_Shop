@@ -2,23 +2,22 @@
 
 angular
     .module('myApp')
-    .controller('HomeController', ['$scope', '$window', '$filter', '$uibModal', 'ProductService', 'CategoryService', function ($scope, $window, $filter, $uibModal, ProductService, CategoryService) {
+    .controller('HomeController', ['$scope', '$window', '$filter', '$uibModal', 'ProductService', 'CategoryService', 'ShoppingService', function ($scope, $window, $filter, $uibModal, ProductService, CategoryService, ShoppingService) {
         $scope.category = '';
         $scope.categories = '';
         $scope.products = '';
-        $scope.filteredItems = null;
-        $scope.shoped = [];
-        
+        $scope.filteredItems = null;        
+        $scope.shoped = ShoppingService.getProductsLength();
+        $scope.numPage = [{ name: 'option1', value: 3 }, { name: 'option2', value: 5 }, { name: 'option3', value: 10 }];
+        $scope.numperpage = 10;
+
         //Function to get all products
         var initProduct = function () {
             $scope.promiseProduct = ProductService.getAllProducts().then(function (result) {
                 $scope.products = result.data;
                 $scope.filteredItems = result.data;
-
-                $scope.currentPage = 1;
-                $scope.itemsPerPage = 2;
-                $scope.maxSize = 10;
-                $scope.totalItems = $scope.products.length; 
+                
+                initializePagination(result.data);                
             });
         };
 
@@ -40,20 +39,6 @@ angular
         //Charge the all values
         initProduct();
         initCategories();
-       
-        //Show de CarShop modal
-        $scope.showCarShop = function () {
-            var modalInstance = $uibModal.open({
-                animation: true,
-                templateUrl: 'App/Views/Modals/carshop.html',
-                controller: 'ModalShopCartController'
-            });
-
-            //modalInstance.result.then(function (values) {           
-            //}, function () {
-            //    $log.info('Modal dismissed at: ' + new Date());
-            //});
-        };
         
         //Filter by Category
         $scope.filterByCategory = function (value) {
@@ -81,22 +66,29 @@ angular
 
             $scope.products = obj;
         });
+        
+        var initializePagination = function (values) {
+            $scope.currentPage = 1;
+            $scope.itemsPerPage = $scope.numperpage;
+            $scope.maxSize = 10;
+            $scope.totalItems = $scope.products.length;
+        }
 
+        $scope.setItemsPerPage = function (num) {
+            $scope.numperpage = num;
+            initializePagination($scope.products);
+        };
 
         $scope.addItemToCart = function (values) {
-            $scope.shoped.push({
+            $scope.shoped++;
+            var objProduct = {
                 Name: values.Name,
                 Price: values.Price,
                 ProductID: values.ProductID
-            });
+            };
 
-            console.log($scope.shoped);
+            ShoppingService.addProduct(objProduct);            
         };
-
-
-        
-              
-
     }])
     .filter('offset', function () {
         return function (input, start) {

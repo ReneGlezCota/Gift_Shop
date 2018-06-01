@@ -248,13 +248,16 @@
     <Content Include="App\app.js" />
     <Content Include="App\Controllers\globalController.js" />
     <Content Include="App\Controllers\Home\homeController.js" />
+    <Content Include="App\Controllers\Shopping\ShoppingController.js" />
     <Content Include="App\Route\routes.js" />
     <Content Include="App\Services\AuthenticateService.js" />
     <Content Include="App\Services\CategoryService.js" />
     <Content Include="App\Services\ProductService.js" />
+    <Content Include="App\Services\ShoppingService.js" />
     <Content Include="App\Views\Modals\carshop.html" />
     <Content Include="App\Views\Modals\login.html" />
     <Content Include="App\Views\Home\index.html" />
+    <Content Include="App\Views\Shopping\index.html" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\cards.css" />
@@ -271,6 +274,8 @@
     <Content Include="Scripts\angular-ui\ui-bootstrap-tpls.min.js" />
     <Content Include="Scripts\angular-ui\ui-bootstrap.js" />
     <Content Include="Scripts\angular-ui\ui-bootstrap.min.js" />
+    <Content Include="Scripts\AngularUI\ui-router.js" />
+    <Content Include="Scripts\AngularUI\ui-router.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">

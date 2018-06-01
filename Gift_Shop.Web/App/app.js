@@ -5,12 +5,9 @@ angular
         'ngAnimate',
         'ngCookies',
         'ngResource',
-        'ngRoute',
         'ngSanitize',
-        'ui.bootstrap'])
+        'ui.bootstrap',
+        'ui.router'])
     .config(['$httpProvider', '$locationProvider', function ($httpProvider, $locationProvider) {
-        $locationProvider.html5Mode({
-            enabled: true,
-            requireBase: false
-        });
+        $locationProvider.html5Mode(true);
 }]);

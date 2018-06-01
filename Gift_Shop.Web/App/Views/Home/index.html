@@ -1,23 +1,26 @@
-﻿<div class="container">
-   
-    <div class="container-fluid">
+﻿<div class="container">   
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="container">
+                <div class="row">
+                    <h4 class="col-sm-4">Filter by Category</h4>
+                    <select name="" id="" class="form-control col-sm-6" ng-model="category" ng-options="cat.Name as cat.Name for cat in categories | orderBy:'CategoryID' " style="width: 150px;" ng-change="filterByCategory(category)"></select>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search" ng-model="query">
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <a ui-sref="shopping"> Cart <span class="glyphicon glyphicon-shopping-cart"></span> ({{shoped}}) </a>              
+        </div>            
+    </div>    
+    <div class="row">
         <div class="row">
-            <div class="col-sm-6">
-                <div class="container">
-                    <div class="row">
-                        <h4 class="col-sm-4">Filter by Category</h4>
-                        <select name="" id="" class="form-control col-sm-6" ng-model="category" ng-options="cat.Name as cat.Name for cat in categories | orderBy:'CategoryID' " style="width: 150px;" ng-change="filterByCategory(category)"></select>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-3">
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Search" ng-model="query">
-                </div>
-            </div>
-            <div class="col-sm-3">
-                <button type="button" class="btn btn-outline-light text-dark" ng-click="showCarShop()">Cart <span class="glyphicon glyphicon-shopping-cart"></span> ({{shoped.length}})</button>               
-            </div>
+            <span style="margin-left:50px;">Item per page</span> 
+            <select ng-model="numperpage" ng-change="setItemsPerPage(numperpage)" ng-options="op.value as op.value for op in numPage"> </select>
         </div>
     </div>
     <br/>
@@ -54,8 +57,8 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <ul uib-pagination total-items="totalItems" class="pagination-sm" items-per-page="itemsPerPage" ng-model="currentPage" max-size="maxSize"></ul>
-
+        </div>                      
+        <ul uib-pagination total-items="totalItems" class="pagination-sm" items-per-page="itemsPerPage" ng-model="currentPage" max-size="maxSize"></ul>                                              
+        
     </div>
 </div>
