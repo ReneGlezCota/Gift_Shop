@@ -23,7 +23,7 @@
     <br/>
     <div class="container">
         <div class="row">
-            <div ng-repeat="product in products">
+            <div ng-repeat="product in products | offset: (currentPage - 1) * itemsPerPage | limitTo:itemsPerPage">
                 <div class="col-sm-3" style="padding-bottom:20px;">
                     <div class="col-item">
                         <div class="photo">
@@ -42,7 +42,7 @@
                             </div>
                             <div class="separator clear-left">
                                 <p class="btn-add">
-                                    <i class="fa fa-shopping-cart"></i><a  href="#" ng-click="addItemToCart(product);" class="hidden-sm" style="text-decoration: none;"><span>Add to cart</span></a>
+                                    <i class="fa fa-shopping-cart"></i><a href="#" ng-click="addItemToCart(product);" class="hidden-sm" style="text-decoration: none;"><span>Add to cart</span></a>
                                 </p>
                                 <p class="btn-details">
                                     <i class="fa fa-list"></i><a href="#" ng-click="showProduct(product);" class="hidden-sm" style="text-decoration: none;"><span>More details</span></a>
@@ -54,6 +54,8 @@
                     </div>
                 </div>
             </div>
-        </div>       
+        </div>
+        <ul uib-pagination total-items="totalItems" class="pagination-sm" items-per-page="itemsPerPage" ng-model="currentPage" max-size="maxSize"></ul>
+
     </div>
 </div>

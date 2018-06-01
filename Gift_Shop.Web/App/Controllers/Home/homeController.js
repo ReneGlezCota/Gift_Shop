@@ -14,6 +14,11 @@ angular
             $scope.promiseProduct = ProductService.getAllProducts().then(function (result) {
                 $scope.products = result.data;
                 $scope.filteredItems = result.data;
+
+                $scope.currentPage = 1;
+                $scope.itemsPerPage = 2;
+                $scope.maxSize = 10;
+                $scope.totalItems = $scope.products.length; 
             });
         };
 
@@ -40,7 +45,7 @@ angular
         $scope.showCarShop = function () {
             var modalInstance = $uibModal.open({
                 animation: true,
-                templateUrl: 'App/Views/Templates/carshop.html',
+                templateUrl: 'App/Views/Modals/carshop.html',
                 controller: 'ModalShopCartController'
             });
 
@@ -89,9 +94,15 @@ angular
         };
 
 
-
+        
+              
 
     }])
+    .filter('offset', function () {
+        return function (input, start) {
+            return input.slice(start);
+        };
+    })
     .controller('ModalShopCartController', function ($scope, $uibModalInstance) {
         $scope.close = function () {
             $uibModalInstance.dismiss('cancel');
