@@ -2,10 +2,30 @@
 
 angular
     .module('myApp')
-    .controller('ShoppingController', ['$scope', '$window', '$filter', '$uibModal', 'ShoppingService', function ($scope, $window, $filter, $uibModal, ShoppingService) {
+    .controller('ShoppingController', ['$scope', '$window', '$filter', '$uibModal', '$state', 'ShoppingService', function ($scope, $window, $filter, $uibModal, $state, ShoppingService) {
         
         $scope.products = ShoppingService.getProducts();
-        console.log($scope.products);
+        $scope.count = 1;
+
+        $scope.returnPage = function () {
+            $state.go('home')
+        };
+
+        $scope.showPay = function () {
+            var modalInstance = $uibModal.open({
+                animation: true,
+                templateUrl: 'App/Views/Modals/payment.html',
+                controller: 'ModalPaymentController'
+            });
+        }
+
+
+
+
+
+
+
+
 
         ////Function to get all products
         //var initProduct = function () {
@@ -23,4 +43,10 @@ angular
         //initProduct();
 
        
-    }]);
+    }])
+    .controller('ModalPaymentController', function ($scope, $rootScope, $uibModalInstance, $cookies) {
+
+        $scope.closePayment = function () {
+            $uibModalInstance.close();
+        };
+    });

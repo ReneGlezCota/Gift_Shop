@@ -84,7 +84,8 @@ angular
             var objProduct = {
                 Name: values.Name,
                 Price: values.Price,
-                ProductID: values.ProductID
+                ProductID: values.ProductID,
+                Image: values.ImagePath
             };
             ShoppingService.addProduct(objProduct);            
         };
