@@ -6,6 +6,7 @@ angular
         
         $scope.products = ShoppingService.getProducts();
         $scope.count = 1;
+        $scope.total = 0;
 
         $scope.returnPage = function () {
             $state.go('home')
@@ -19,7 +20,9 @@ angular
             });
         }
 
-
+        $scope.deleteItem = function (values) {
+            ShoppingService.deleteProduct(values);
+        };
 
 
 

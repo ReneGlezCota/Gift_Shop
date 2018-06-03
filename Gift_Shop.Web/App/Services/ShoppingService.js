@@ -22,9 +22,19 @@ angular
             }            
         }
 
+        var deleteProduct = function (values) {
+
+            for (var i = productList.length - 1; i >= 0; i--) {
+                if (productList[i].ProductID == values) {
+                    productList.splice(i, 1);
+                }
+            }            
+        }
+
         return {
             addProduct: addProduct,
             getProducts: getProducts,
-            getProductsLength : getProductsLength
+            getProductsLength: getProductsLength,
+            deleteProduct: deleteProduct
         };
 });

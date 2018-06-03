@@ -80,7 +80,7 @@ angular
         };
 
         $scope.addItemToCart = function (values) {
-            $scope.shoped++;
+            $scope.shoped += 1;
             var objProduct = {
                 Name: values.Name,
                 Price: values.Price,

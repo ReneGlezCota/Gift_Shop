@@ -11,7 +11,7 @@
                         <th> </th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody  ng-init="total = 0">
                     <tr ng-repeat="product in products">
                         <td class="col-sm-8 col-md-6">
                             <div class="media">
@@ -22,12 +22,12 @@
                             </div>
                         </td>
                         <td class="col-sm-1 col-md-1" style="text-align: center">
-                            <input type="text" class="form-control" id="exampleInputEmail1" ng-model="count" >
+                            <input type="text" class="form-control" ng-change="$parent.total = $parent.total + (product.Price * count)" id="exampleInputEmail1" ng-model="count" >
                         </td>
                         <td class="col-sm-1 col-md-1 text-center"><strong>{{product.Price | currency}}</strong></td>
-                        <td class="col-sm-1 col-md-1 text-center" ng-model="priceProduct"><strong>{{product.Price * count | currency}}</strong></td>
+                        <td class="col-sm-1 col-md-1 text-center" ng-init="$parent.total = $parent.total + (product.Price * count)"><strong>{{product.Price * count | currency}}</strong></td>
                         <td class="col-sm-1 col-md-1">
-                            <button type="button" class="btn btn-danger">
+                            <button type="button" class="btn btn-danger" ng-click="deleteItem(product.ProductID)">
                                 <span class="glyphicon glyphicon-remove"></span> Remove
                             </button>
                         </td>
@@ -37,21 +37,21 @@
                         <td>   </td>
                         <td>   </td>
                         <td><h5>Subtotal</h5></td>
-                        <td class="text-right"><h5><strong>$24.59</strong></h5></td>
+                        <td class="text-right"><h5><strong>{{total | currency}}</strong></h5></td>
                     </tr>
                     <tr>
                         <td>   </td>
                         <td>   </td>
                         <td>   </td>
                         <td><h5>Estimated shipping</h5></td>
-                        <td class="text-right"><h5><strong>$6.94</strong></h5></td>
+                        <td class="text-right"><h5><strong>{{total * 0.05 | currency}}</strong></h5></td>
                     </tr>
                     <tr>
                         <td>   </td>
                         <td>   </td>
                         <td>   </td>
                         <td><h3>Total</h3></td>
-                        <td class="text-right"><h3><strong>$31.53</strong></h3></td>
+                        <td class="text-right"><h3><strong>{{total + (total * 0.05) | currency}}</strong></h3></td>
                     </tr>
                     <tr>
                         <td>   </td>
