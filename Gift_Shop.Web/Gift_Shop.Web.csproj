@@ -256,10 +256,12 @@
     <Content Include="App\Services\CategoryService.js" />
     <Content Include="App\Services\ProductService.js" />
     <Content Include="App\Services\ShoppingService.js" />
+    <Content Include="App\Views\Modals\productDelete.html" />
     <Content Include="App\Views\Modals\payment.html" />
     <Content Include="App\Views\Modals\productDetails.html" />
     <Content Include="App\Views\Modals\login.html" />
     <Content Include="App\Views\Home\index.html" />
+    <Content Include="App\Views\Modals\productUpdate.html" />
     <Content Include="App\Views\Product\index.html" />
     <Content Include="App\Views\Shopping\index.html" />
     <Content Include="Content\bootstrap.css" />

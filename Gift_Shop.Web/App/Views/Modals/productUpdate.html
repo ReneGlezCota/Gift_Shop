@@ -1,0 +1,54 @@
+﻿<div class="modal-fade">
+    <div class="modal-login" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Update Product</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="closeUpdate()">&times;</button>
+            </div>
+            <form name="form.userForm" ng-submit="save()" novalidate>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="form-group">
+                            <label for="productname">PRODUCT NAME</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" name="productname" required autofocus />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-7 col-md-7">
+                        <div class="form-group">
+                            <label for="price">PRICE</label>
+                            <input type="text" class="form-control" name="price" required />
+                        </div>
+                    </div>
+                    <div class="col-xs-5 col-md-5 pull-right">
+                        <div class="form-group">
+                            <label for="category">CATEGORY</label>
+                            <select name="category" class="form-control" ng-model="category" ng-options="cat.Name as cat.Name for cat in categories | orderBy:'CategoryID' "/>                            
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="form-group">
+                            <label for="description">DETAILS</label>
+                            <input type="text" class="form-control" name="description" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <button class="subscribe btn btn-success btn-lg btn-block" type="button">Update</button>
+                    </div>
+                </div>
+                <div class="row" style="display:none;">
+                    <div class="col-xs-12">
+                        <p class="payment-errors"></p>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div> 
