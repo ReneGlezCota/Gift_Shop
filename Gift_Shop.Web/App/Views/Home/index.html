@@ -1,5 +1,10 @@
 ﻿<div class="container">   
     <div class="row">
+        <div class="col-sm-4">
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search" ng-model="query">
+            </div>
+        </div>
         <div class="col-sm-6">
             <div class="container">
                 <div class="row">
@@ -8,14 +13,10 @@
                 </div>
             </div>
         </div>
+
         <div class="col-sm-2">
-            <div class="form-group">
-                <input type="text" class="form-control" placeholder="Search" ng-model="query">
-            </div>
+            <a ui-sref="shopping" class="btn btn-info" role="button"> Cart <span class="glyphicon glyphicon-shopping-cart"></span> ({{shoped}}) </a>
         </div>
-        <div class="col-sm-2">
-            <a ui-sref="shopping"> Cart <span class="glyphicon glyphicon-shopping-cart"></span> ({{shoped}}) </a>              
-        </div>            
     </div>    
     <div class="row">
         <div class="row">
