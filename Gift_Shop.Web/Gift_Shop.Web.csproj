@@ -240,6 +240,8 @@
     <Compile Include="ViewModels\CategoryViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="ViewModels\ProductFormUpdateViewModel.cs" />
+    <Compile Include="ViewModels\ProductFormViewModel.cs" />
     <Compile Include="ViewModels\ProductViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -256,6 +258,7 @@
     <Content Include="App\Services\CategoryService.js" />
     <Content Include="App\Services\ProductService.js" />
     <Content Include="App\Services\ShoppingService.js" />
+    <Content Include="App\Views\Modals\productAdd.html" />
     <Content Include="App\Views\Modals\productDelete.html" />
     <Content Include="App\Views\Modals\payment.html" />
     <Content Include="App\Views\Modals\productDetails.html" />

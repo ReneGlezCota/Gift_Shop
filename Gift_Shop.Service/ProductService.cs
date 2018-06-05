@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Gift_Shop.Data.Infrastructure;
 using Gift_Shop.Data.Repositories;
@@ -23,13 +24,7 @@ namespace Gift_Shop.Service
         {
             var products = productsRepository.GetAll();
             return products;
-        }        
-
-        public IEnumerable<Product> GetCategoryProducts(string categoryName, string productName = null)
-        {
-            var category = categoryRepository.GetCategoryByName(categoryName);
-            return category.Products.Where(a => a.Name.ToLower().Contains(productName.ToLower().Trim()));
-        }
+        }                
 
         public Product GetProduct(int id)
         {
@@ -47,5 +42,14 @@ namespace Gift_Shop.Service
             unitOfWork.Commit();
         }
 
+        public void DeleteProduct(int id)
+        {
+            productsRepository.Delete(a=>a.ProductID == id);
+        }   
+        
+        public void UpdateProduct(Product product)
+        {
+            productsRepository.Update(product);
+        }     
     }
 }

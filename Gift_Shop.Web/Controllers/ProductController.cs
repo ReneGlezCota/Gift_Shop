@@ -41,20 +41,37 @@ namespace Gift_Shop.Web.Controllers
         }
 
         // POST: api/Product
-        public string Post([FromBody]string value)
+        public string Post(ProductFormViewModel value)
         {
-            //string value = data["value"].ToObject<string>();
-            return "values";
+            if(value != null)
+            {
+                var product = Mapper.Map<ProductFormViewModel, Product>(value);
+                productService.CreateProduct(product);
+                productService.SaveProduct();
+                return "OK";
+            }
+            return "Error";
         }
 
         // PUT: api/Product/5
-        public void Put(int id, [FromBody]string value)
+        public string Put(ProductFormUpdateViewModel value)
         {
+            if (value != null)
+            {
+                var product = Mapper.Map<ProductFormUpdateViewModel, Product>(value);
+                productService.UpdateProduct(product);
+                productService.SaveProduct();
+                return "OK";
+            }
+            return "Error";
         }
 
         // DELETE: api/Product/5
-        public void Delete(int id)
+        public string Delete(int id)
         {
+            productService.DeleteProduct(id);
+            productService.SaveProduct();
+            return "OK";
         }
     }
 }

@@ -2,8 +2,8 @@
 
 angular
     .module('myApp')
-    .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
-        $urlRouterProvider.otherwise('/home');
+    .config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function ($stateProvider, $urlRouterProvider, $locationProvider) {
+        
         $stateProvider
             .state('home', {
                 url: '/home',
@@ -20,4 +20,7 @@ angular
                 templateUrl: '/App/Views/Product/index.html',
                 controller : 'ProductController'
             });
+
+        $urlRouterProvider.otherwise('/home');
+        $locationProvider.html5Mode({ enabled: true, requireBase: false });
 }]);

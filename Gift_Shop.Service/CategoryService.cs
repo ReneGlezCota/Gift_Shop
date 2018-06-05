@@ -24,18 +24,6 @@ namespace Gift_Shop.Service
             return category;
         }
 
-        public IEnumerable<Category> GetCategories(string name = null)
-        {
-            if (string.IsNullOrEmpty(name))
-            {
-                return categoryRepository.GetAll();
-            }
-            else
-            {
-                return categoryRepository.GetAll().Where(a => a.Name == name);
-            }
-        }
-
         public Category GetCategory(int id)
         {
             var category = categoryRepository.GetById(id);

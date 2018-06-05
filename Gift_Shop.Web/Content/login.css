@@ -27,6 +27,9 @@
 	.modal-login .form-control {
 		padding-left: 40px;
 	}
+    .modal-login .form-control .prod {
+		padding-left: 5px;
+	}
 	.modal-login .form-control:focus {
 		border-color: #00ce81;
 	}

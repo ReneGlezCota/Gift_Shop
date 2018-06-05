@@ -16,7 +16,7 @@
 </style>
 <div class="container">
     <div class="row">
-        <div class="col-sm-6 col-sm-offset-3">
+        <div class="col-sm-6 col-sm-offset-2">
             <div id="imaginary_container">
                 <div class="input-group stylish-input-group">
                     <input type="text" class="form-control" placeholder="Search" ng-model="productname">
@@ -26,7 +26,16 @@
                         </button>
                     </span>
                 </div>
+                
             </div>
+        </div>
+        <div>
+            <button type="button" class="btn btn-info" ng-click="newProduct()">
+                <span class="glyphicon glyphicon-saved"></span> New Product
+            </button>
+            <button type="button" class="btn btn-default" ng-click="returnPage()">
+                <span class="glyphicon glyphicon-arrow-left"></span> Return
+            </button>
         </div>
     </div>
     <div class="row">
@@ -37,7 +46,7 @@
                         <th>Product Name</th>
                         <th class="text-center">Price</th>
                         <th class="text-center">Update</th>
-                        <th class="text-center">Delte</th>
+                        <th class="text-center">Delete</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -46,7 +55,7 @@
                             <div class="media">
                                 <a class="thumbnail pull-left" href="#"> <img class="media-object" ng-src="../../../images/{{product.ImagePath}}" style="width: 72px; height: 72px;"> </a>
                                 <div class="media-body">
-                                    <h4 class="media-heading"><a href="#" ng-click="showProduct(product)">{{product.Name}}</a></h4>
+                                    <h4 class="media-heading"><a href="#" >{{product.Name}}</a></h4>
                                     <p>{{product.Description}}</p>
                                 </div>
                             </div>
