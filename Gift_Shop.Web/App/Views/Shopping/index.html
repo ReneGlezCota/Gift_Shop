@@ -5,9 +5,8 @@
                 <thead>
                     <tr>
                         <th>Product</th>
-                        <th>Quantity</th>
+                        <th class="text-center"> </th>
                         <th class="text-center">Price</th>
-                        <th class="text-center">Total</th>
                         <th> </th>
                     </tr>
                 </thead>
@@ -15,17 +14,15 @@
                     <tr ng-repeat="product in products">
                         <td class="col-sm-8 col-md-6">
                             <div class="media">
-                                <a class="thumbnail pull-left" href="#"> <img class="media-object" ng-src="../../../images/{{product.ImagePath}}" style="width: 72px; height: 72px;"> </a>
+                                <a class="thumbnail pull-left" href=""> <img class="media-object" ng-src="../../../images/{{product.ImagePath}}" style="width: 72px; height: 72px;"> </a>
                                 <div class="media-body">
-                                    <h4 class="media-heading"><a href="#" ng-click="showProduct(product)">{{product.Name}}</a></h4>
+                                    <h4 class="media-heading"><a href="" ng-click="showProduct(product)">{{product.Name}}</a></h4>
                                 </div>
                             </div>
                         </td>
-                        <td class="col-sm-1 col-md-1" style="text-align: center">
-                            <input type="number" class="form-control" ng-change="totalPaye(product.Price, count)" ng-model="count" min="1">
-                        </td>
-                        <td class="col-sm-1 col-md-1 text-center"><strong>{{product.Price | currency}}</strong></td>
-                        <td class="col-sm-1 col-md-1 text-center" ng-init="$parent.total = $parent.total + (product.Price * count)"><strong>{{product.Price * count | currency}} </strong></td>
+                        <td class="col-sm-1 col-md-1 text-center"></td>
+                        
+                        <td class="col-sm-1 col-md-1 text-center"><strong>{{product.Price * count | currency}} </strong></td>
                         <td class="col-sm-1 col-md-1">
                             <button type="button" class="btn btn-danger" ng-click="deleteItem(product.ProductID)">
                                 <span class="glyphicon glyphicon-remove"></span> Remove
@@ -35,26 +32,22 @@
                     <tr>
                         <td>   </td>
                         <td>   </td>
-                        <td>   </td>
                         <td><h5>Subtotal</h5></td>
-                        <td class="text-right"><h5><strong>{{total | currency}}</strong></h5></td>
+                        <td class="text-right"><h5><strong>{{getTotal() | currency}}</strong></h5></td>
                     </tr>
                     <tr>
-                        <td>   </td>
                         <td>   </td>
                         <td>   </td>
                         <td><h5>Estimated shipping</h5></td>
-                        <td class="text-right"><h5><strong>{{total * 0.05 | currency}}</strong></h5></td>
+                        <td class="text-right"><h5><strong>{{getTotal() * 0.05 | currency}}</strong></h5></td>
                     </tr>
                     <tr>
-                        <td>   </td>
                         <td>   </td>
                         <td>   </td>
                         <td><h3>Total</h3></td>
-                        <td class="text-right"><h3><strong>{{total + (total * 0.05) | currency}}</strong></h3></td>
+                        <td class="text-right"><h3><strong>{{getTotal() + (getTotal() * 0.05) | currency}}</strong></h3></td>
                     </tr>
                     <tr>
-                        <td>   </td>
                         <td>   </td>
                         <td>   </td>
                         <td>

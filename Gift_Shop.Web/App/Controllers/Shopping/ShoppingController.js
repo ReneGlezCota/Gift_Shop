@@ -19,21 +19,29 @@ angular
                 controller: 'ModalPaymentController'
             });
 
-            modalInstance.result.then(function () {
-                $scope.products = ShoppingService.deleteAll()
-                $scope.returnPage();
+            modalInstance.result.then(function (value) {
+                if (value) {
+                    $scope.products = ShoppingService.deleteAll()
+                    $scope.returnPage();
+                }                
             });
         }
 
         $scope.deleteItem = function (values) {
             ShoppingService.deleteProduct(values);
             $scope.products = ShoppingService.getProducts();
+
+            $scope.getTotal();
         };
 
-        $scope.totalPaye = function (price, count) {
-            var value = $scope.total - price;
-
-            $scope.total = value + (price * count);
+        $scope.getTotal = function () {
+            var total = 0;
+            for (var i = 0; i < $scope.products.length;  i++)
+            {
+                var element = $scope.products[i];
+                total += element.Price
+            }
+            return total;
         }; 
 
         var init = function () {
@@ -51,7 +59,7 @@ angular
 
         $scope.pay = function () {
             if ($scope.form.pay.$valid) {
-                $uibModalInstance.close();                                   
+                $uibModalInstance.close(true);                                   
             } else {
                 console.log('userform is not in scope');
             }
