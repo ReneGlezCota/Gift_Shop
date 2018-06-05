@@ -8,8 +8,10 @@ angular
 
         //Function to get all products
         var initProduct = function () {
-             $scope.promiseProduct = ProductService.getAllProducts().then(function (result) {
-                $scope.products = result.data;                 
+             ProductService.getAllProducts().then(function (result) {
+                 $scope.products = result.data;
+
+                 filterList();
             });
         };
 
@@ -28,7 +30,6 @@ angular
 
             modalInstance.result.then(function (values) {
                 initProduct();
-                filterList();
             });
         };
 
@@ -50,7 +51,6 @@ angular
 
             modalInstance.result.then(function (values) {
                 initProduct();
-                filterList();
             });       
         };
 
@@ -67,8 +67,7 @@ angular
             });
 
             modalInstance.result.finally(function (result) {
-                initProduct();
-                filterList();                
+                initProduct();                
             });
         };
 
@@ -83,7 +82,10 @@ angular
                 ).value();
 
                 $scope.filteredItems = obj;
-            };
+            }
+            else {
+                $scope.filteredItems = '';
+            }            
         };
     }])
     .controller('ModalAddProductController', function ($scope, $uibModalInstance, ProductService, CategoryService) {

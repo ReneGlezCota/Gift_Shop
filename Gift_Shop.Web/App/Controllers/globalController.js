@@ -1,7 +1,7 @@
 ﻿'use strict';
 angular
     .module('myApp')
-    .controller('GlobalController', ['$scope', '$uibModal', '$log', '$rootScope', '$cookies', '$state', function ($scope, $uibModal, $log, $rootScope, $cookies, $state) {
+    .controller('GlobalController', ['$scope', '$uibModal', '$log', '$rootScope', '$cookies', '$state', '$window', function ($scope, $uibModal, $log, $rootScope, $cookies, $state, $window) {
         $scope.login = function () {
             var modalInstance = $uibModal.open({
                 animation: true,
@@ -24,7 +24,7 @@ angular
                 $cookies.putObject('globals', $rootScope.globals, { expires: cookieExp });
                 init();
 
-                window.location.reload();
+                $window.location.reload();
 
             }, function () {
                 $log.info('Modal dismissed at: ' + new Date());
