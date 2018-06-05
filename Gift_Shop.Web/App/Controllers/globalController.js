@@ -23,9 +23,6 @@ angular
                 cookieExp.setDate(cookieExp.getDate() + 1);
                 $cookies.putObject('globals', $rootScope.globals, { expires: cookieExp });
                 init();
-
-                $window.location.reload();
-
             }, function () {
                 $log.info('Modal dismissed at: ' + new Date());
             });            

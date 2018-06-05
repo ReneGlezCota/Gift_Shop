@@ -19,22 +19,26 @@ angular
             }
             else {
                 return 0;
-            }            
-        }
+            }
+        };
 
         var deleteProduct = function (values) {
-
             for (var i = productList.length - 1; i >= 0; i--) {
                 if (productList[i].ProductID == values) {
                     productList.splice(i, 1);
                 }
-            }            
-        }
+            }
+        };
+
+        var deleteAll = function () {
+            productList = [];
+        };
 
         return {
             addProduct: addProduct,
             getProducts: getProducts,
             getProductsLength: getProductsLength,
-            deleteProduct: deleteProduct
+            deleteProduct: deleteProduct,
+            deleteAll: deleteAll
         };
 });

@@ -21,6 +21,6 @@ angular
                 controller : 'ProductController'
             });
 
-        $urlRouterProvider.otherwise('/App/Views/');        
+        $urlRouterProvider.otherwise('/home');        
         $locationProvider.html5Mode({ enabled: true, requireBase: false });
 }]);
