@@ -36,11 +36,13 @@ angular
 
         $scope.getTotal = function () {
             var total = 0;
-            for (var i = 0; i < $scope.products.length;  i++)
-            {
-                var element = $scope.products[i];
-                total += element.Price
+            if ($scope.products) {
+                for (var i = 0; i < $scope.products.length; i++) {
+                    var element = $scope.products[i];
+                    total += element.Price
+                }
             }
+            
             return total;
         }; 
 

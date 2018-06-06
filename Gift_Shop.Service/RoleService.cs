@@ -18,13 +18,7 @@ namespace Gift_Shop.Service
         {
             this.iroleRepository = iroleRepository;
             this.iunitOfWork = iunitOfWork;
-        }
-
-        public Role GetRole(string name)
-        {
-            var role = iroleRepository.GetRoleByName(name);
-            return role;
-        }
+        }        
 
         public Role GetRole(int id)
         {

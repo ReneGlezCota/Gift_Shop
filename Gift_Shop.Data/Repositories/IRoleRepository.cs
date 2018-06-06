@@ -5,6 +5,5 @@ namespace Gift_Shop.Data.Repositories
 {
     public interface IRoleRepository : IRepository<Role>
     {
-        Role GetRoleByName(string nameRole);
     }
 }

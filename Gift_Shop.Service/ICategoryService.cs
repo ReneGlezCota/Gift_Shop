@@ -7,7 +7,6 @@ namespace Gift_Shop.Service
     {
         IEnumerable<Category> GetCategories();
         Category GetCategory(int id);
-        Category GetCategory(string name);
         void CreateCategory(Category category);
         void SaveCategory();
     }

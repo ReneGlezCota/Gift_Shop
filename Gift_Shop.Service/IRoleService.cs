@@ -7,6 +7,5 @@ namespace Gift_Shop.Service
     {
         IEnumerable<Role> GetRoles();
         Role GetRole(int id);
-        Role GetRole(string name);
     }
 }

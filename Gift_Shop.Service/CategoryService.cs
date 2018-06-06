@@ -29,13 +29,7 @@ namespace Gift_Shop.Service
             var category = categoryRepository.GetById(id);
             return category;
         }
-
-        public Category GetCategory(string name)
-        {
-            var category = categoryRepository.GetCategoryByName(name);
-            return category;
-        }
-
+        
         public void CreateCategory(Category category)
         {
             categoryRepository.Add(category);
