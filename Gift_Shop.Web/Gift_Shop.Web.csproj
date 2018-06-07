@@ -253,6 +253,7 @@
     <Content Include="App\Controllers\Home\homeController.js" />
     <Content Include="App\Controllers\Product\productController.js" />
     <Content Include="App\Controllers\Shopping\shoppingController.js" />
+    <Content Include="App\Directives\UploadImageDirective.js" />
     <Content Include="App\Route\routes.js" />
     <Content Include="App\Services\AuthenticateService.js" />
     <Content Include="App\Services\CategoryService.js" />

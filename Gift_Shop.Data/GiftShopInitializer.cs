@@ -33,7 +33,8 @@ namespace Gift_Shop.Data
         {
             return new List<User>
             {
-                new User { UserName = "AdminTest", Password = "123", RoleID = 1, FirstName = "Test", LastName = "Test" }
+                new User { UserName = "Admin", Password = "123", RoleID = 1, FirstName = "Test", LastName = "Test" },
+                new User { UserName = "Admin2", Password = "321", RoleID = 2, FirstName = "Test2", LastName = "Test2" }
             };
         }
 

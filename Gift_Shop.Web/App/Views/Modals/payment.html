@@ -25,7 +25,8 @@
                                 <div class="col-xs-12">
                                     <div class="form-group">
                                         <label for="cardNumber">CARD NUMBER</label>                                        
-                                        <input type="tel" class="form-control" name="cardNumber" ng-model="cardNumber" placeholder="Valid Card Number" autocomplete="cc-number" required autofocus />                                        
+                                        <input type="number" class="form-control" name="cardNumber" ng-model="cardNumber" placeholder="Valid Card Number" autocomplete="cc-number" ng-pattern="/^\d{1,16}$/" required autofocus />                                        
+                                        <span ng-show="form.pay.cardNumber.$error.pattern">Not a valid number!</span>
                                         <p ng-show="form.pay.cardNumber.$invalid && !form.pay.cardNumber.$pristine" class="help-block">Card Number is required.</p>
                                     </div>
                                 </div>
@@ -34,14 +35,16 @@
                                 <div class="col-xs-7 col-md-7">
                                     <div class="form-group">
                                         <label for="cardExpiry"><span class="visible-xs-inline">EXP</span> DATE</label>
-                                        <input type="tel" class="form-control" name="cardExpiry" ng-model="cardExpiry" placeholder="MM / YY" autocomplete="cc-exp" required />
+                                        <input type="text" class="form-control" name="cardExpiry" ng-model="cardExpiry" placeholder="MM / YYYY" autocomplete="cc-exp" required ng-pattern="/^(0[1-9]|[12][0-9]|3[01])[\/](19|20)\d\d$/" />
+                                        <span ng-show="form.pay.cardExpiry.$error.pattern">Not a valid number!</span>
                                         <p ng-show="form.pay.cardExpiry.$invalid && !form.pay.cardExpiry.$pristine" class="help-block">Card Number is required.</p>
                                     </div>
                                 </div>
                                 <div class="col-xs-5 col-md-5 pull-right">
                                     <div class="form-group ">
                                         <label for="cardCVC">CV CODE</label>
-                                        <input type="tel" class="form-control" name="cardCVC" ng-model="cardCVC" placeholder="CVC" autocomplete="cc-csc" required />
+                                        <input type="number" class="form-control" name="cardCVC" ng-model="cardCVC" placeholder="CVC" autocomplete="cc-csc" required   ng-pattern="/^\d{1,3}$/"/>
+                                        <span ng-show="form.pay.cardCVC.$error.pattern">Not a valid number!</span>
                                         <p ng-show="form.pay.cardCVC.$invalid && !form.pay.cardCVC.$pristine" class="help-block">Card Number is required.</p>
                                     </div>
                                 </div>

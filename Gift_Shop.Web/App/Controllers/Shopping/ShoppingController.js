@@ -12,11 +12,16 @@ angular
             $state.go('home');
         };
 
-        $scope.showPay = function () {
+        $scope.showPay = function (items) {
             var modalInstance = $uibModal.open({
                 animation: true,
                 templateUrl: 'App/Views/Modals/payment.html',
-                controller: 'ModalPaymentController'
+                controller: 'ModalPaymentController',
+                resolve: {
+                    elements: function () {
+                        return items;
+                    }
+                }
             });
 
             modalInstance.result.then(function (value) {
@@ -58,7 +63,6 @@ angular
        
     }])
     .controller('ModalPaymentController', function ($scope, $rootScope, $uibModalInstance, $cookies) {
-
         $scope.pay = function () {
             if ($scope.form.pay.$valid) {
                 $uibModalInstance.close(true);                                   

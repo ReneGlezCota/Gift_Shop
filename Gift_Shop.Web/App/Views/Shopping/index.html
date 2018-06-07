@@ -56,7 +56,7 @@
                             </button>
                         </td>
                         <td>
-                            <button type="button" class="btn btn-success" ng-click="showPay()" ng-disabled="uservalues.roleid != 1">
+                            <button type="button" class="btn btn-success" ng-click="showPay(products)" ng-disabled="uservalues.roleid != 1 || products.length == 0">
                                 Checkout <span class="glyphicon glyphicon-play"></span>
                             </button>
                         </td>

@@ -27,7 +27,8 @@
                     <div class="col-xs-7 col-md-7">
                         <div class="form-group">
                             <label for="price">PRICE</label>
-                            <input type="text" class="form-control" name="price" ng-model="details.ProductPrice" required>
+                            <input type="number" class="form-control" name="price" ng-model="details.ProductPrice" required ng-pattern="/^[0-9]{1,7}$/">
+                            <span ng-show="form.productForm.price.$error.pattern">Not a valid number!</span>
                             <p ng-show="form.productForm.price.$invalid && !form.productForm.price.$pristine" class="help-block">Price is required.</p>
                         </div>
                     </div>
